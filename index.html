@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            color: #0077cc;
+        }
+        #nameInput {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #continueButton {
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #32CD32;
+            color: white;
+        }
+        #continueButton:hover {
+            background-color: #228B22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome this is rami speaking!</h1>
+    <p>Please enter your name:</p>
+
+    <input type="text" id="nameInput" placeholder="Your Name">
+    <button id="continueButton" onclick="continueToGreeting()">Continue</button>
+
+    <script>
+        function continueToGreeting() {
+            const nameInput = document.getElementById('nameInput');
+            const userName = nameInput.value.trim();
+
+            if (userName) {
+                // Save the username in session storage
+                sessionStorage.setItem('userName', userName);
+
+                // Redirect to the greeting page
+                window.location.href = 'greeting.html';
+            } else {
+                alert('Please enter your name.');
+            }
+        }
+    </script>
+</body>
+</html>

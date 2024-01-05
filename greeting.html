@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            color: #0077cc;
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        #yesButton, #noButton {
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #yesButton {
+            background-color: #32CD32;
+            color: white;
+        }
+        #yesButton:hover {
+            background-color: #228B22;
+        }
+        #noButton {
+            background-color: #FF6347;
+            color: white;
+        }
+        #noButton:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello <span id="userNameSpan"></span>!</h1>
+    <p>Is everything okay?</p>
+
+    <button id="yesButton" onclick="showFireworks()">Yes</button>
+    <button id="noButton" onclick="redirectToFunnyPage()">No</button>
+
+    <script>
+        // Get the saved username from session storage
+        const userName = sessionStorage.getItem('userName');
+
+        if (userName) {
+            const userNameSpan = document.getElementById('userNameSpan');
+            userNameSpan.textContent = userName;
+        }
+
+        function showFireworks() {
+            alert('🎆🎇 Bravo ' + userName + ', everything is okay! 🎇🎆');
+        }
+
+        function redirectToFunnyPage() {
+            // Redirect to the funny page
+            window.location.href = 'funny.html';
+        }
+    </script>
+</body>
+</html>
